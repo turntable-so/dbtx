@@ -43,14 +43,18 @@ class DBTProject(object):
 
     def get_dbt_project_dir(self):
         if "DBT_PROJECT_DIR" in os.environ:
+            print("1")
             return os.environ["DBT_PROJECT_DIR"]
         elif "--project-dir" in self.command_ls:
+            print("2")
             index = self.command_ls.index("--project-dir")
             return self.command_ls[index + 1]
         elif "--project-dir=" in self.command_ls:
+            print("3")
             index = self.command_ls.index("--project-dir=")
             return self.command_ls[index].split("=")[1]
         else:
+            print("4")
             return os.getcwd()
 
     def get_dbt_profiles_dir(self):
