@@ -210,7 +210,7 @@ wcwidth==0.2.13
     # via
     #   prompt-toolkit
     #   tabulate
-zipp==3.17.0
+zipp==3.19.1
     # via
     #   importlib-metadata
     #   importlib-resources
