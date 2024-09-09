@@ -43,18 +43,14 @@ class DBTProject(object):
 
     def get_dbt_project_dir(self):
         if "DBT_PROJECT_DIR" in os.environ:
-            print("1")
             return os.environ["DBT_PROJECT_DIR"]
         elif "--project-dir" in self.command_ls:
-            print("2")
             index = self.command_ls.index("--project-dir")
             return self.command_ls[index + 1]
         elif "--project-dir=" in self.command_ls:
-            print("3")
             index = self.command_ls.index("--project-dir=")
             return self.command_ls[index].split("=")[1]
         else:
-            print("4")
             return os.getcwd()
 
     def get_dbt_profiles_dir(self):
@@ -76,6 +72,8 @@ class DBTProject(object):
         in_home_path = os.path.join(os.path.expanduser("~"), ".dbt", "profiles.yml")
         if os.path.exists(in_home_path):
             return os.path.dirname(in_home_path)
+
+        return in_directory_path
 
     def get_project_yml_file(self):
         dbt_project_yaml_path = os.path.join(self.dbt_project_dir, "dbt_project.yml")
