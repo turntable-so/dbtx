@@ -161,7 +161,7 @@ referencing==0.33.0
     #   jsonschema-specifications
 regex==2023.12.25
     # via sqlfluff
-requests==2.31.0
+requests==2.32.2
     # via
     #   dbt-core
     #   minimal-snowplow-tracker
