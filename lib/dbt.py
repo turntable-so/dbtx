@@ -1,28 +1,9 @@
 import os
-from enum import Enum
 from typing import Any
 
 import yaml
 
 from lib.utils import adjust_path
-
-
-class DBTDialect(str, Enum):
-    BIGQUERY = "bigquery"
-    SNOWFLAKE = "snowflake"
-    DATABRICKS = "databricks"
-    REDSHIFT = "redshift"
-    POSTGRES = "postgres"
-    DUCKDB = "duckdb"
-
-
-class DBTVersion(str, Enum):
-    v1_3 = "1.3"
-    v1_4 = "1.4"
-    v1_5 = "1.5"
-    v1_6 = "1.6"
-    v1_7 = "1.7"
-    v1_8 = "1.8"
 
 
 class DBTProject(object):
