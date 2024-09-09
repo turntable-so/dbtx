@@ -17,7 +17,7 @@ def run_cli(command: list[str], env: dict[str, str] | None = BASE_ENV):
 def test_runner_fails_in_wrong_dir():
     res = run_cli(["--version"], None)
     assert res.returncode == 1
-    assert "No such file or directory:" in res.stderr
+    assert "Could not find profiles.yml file." in res.stderr
 
 
 def test_runner_fails_no_command():
