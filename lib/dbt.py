@@ -1,28 +1,9 @@
 import os
-from enum import Enum
 from typing import Any
 
 import yaml
 
 from lib.utils import adjust_path
-
-
-class DBTDialect(str, Enum):
-    BIGQUERY = "bigquery"
-    SNOWFLAKE = "snowflake"
-    DATABRICKS = "databricks"
-    REDSHIFT = "redshift"
-    POSTGRES = "postgres"
-    DUCKDB = "duckdb"
-
-
-class DBTVersion(str, Enum):
-    v1_3 = "1.3"
-    v1_4 = "1.4"
-    v1_5 = "1.5"
-    v1_6 = "1.6"
-    v1_7 = "1.7"
-    v1_8 = "1.8"
 
 
 class DBTProject(object):
@@ -70,17 +51,20 @@ class DBTProject(object):
             return os.path.dirname(in_directory_path)
 
         in_home_path = os.path.join(os.path.expanduser("~"), ".dbt", "profiles.yml")
-        if os.path.exists(in_home_path):
-            return os.path.dirname(in_home_path)
-
-        raise Exception("Could not find profiles.yml file.")
+        return os.path.dirname(in_home_path)
 
     def get_project_yml_file(self):
-        with open(os.path.join(self.dbt_project_dir, "dbt_project.yml"), "r") as f:
+        dbt_project_yaml_path = os.path.join(self.dbt_project_dir, "dbt_project.yml")
+        if not os.path.exists(dbt_project_yaml_path):
+            raise Exception("Could not find dbt_project.yml file.")
+        with open(dbt_project_yaml_path, "r") as f:
             self.dbt_project_yml = yaml.load(f, yaml.CLoader)
 
     def get_profiles_yml_file(self):
-        with open(os.path.join(self.dbt_profiles_dir, "profiles.yml"), "r") as f:
+        dbt_profiles_yml_path = os.path.join(self.dbt_profiles_dir, "profiles.yml")
+        if not os.path.exists(dbt_profiles_yml_path):
+            raise Exception("Could not find profiles.yml file.")
+        with open(dbt_profiles_yml_path, "r") as f:
             self.dbt_profiles_yml = yaml.load(f, yaml.CLoader)
 
     def get_version(self):
