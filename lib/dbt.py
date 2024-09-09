@@ -73,9 +73,9 @@ class DBTProject(object):
         if os.path.exists(in_home_path):
             return os.path.dirname(in_home_path)
 
-        print(self.dbt_project_dir)
-
-        raise Exception("Could not find profiles.yml file")
+        raise Exception(
+            f"Could not find profiles.yml file, the dbt project yaml path was {self.dbt_project_dir}"
+        )
 
     def get_project_yml_file(self):
         with open(os.path.join(self.dbt_project_dir, "dbt_project.yml"), "r") as f:
