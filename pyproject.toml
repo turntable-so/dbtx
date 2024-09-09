@@ -1,6 +1,6 @@
 [project]
 name = "dbtx"
-version = "0.1.0"
+version = "0.0.2"
 description = "Cross-platform dbt runner. Python not required."
 readme = "README.md"
 license = { file = "LICENSE.md" }
