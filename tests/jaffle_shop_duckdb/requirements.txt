@@ -62,7 +62,7 @@ duckdb==0.10.0
     #   duckcli
 exceptiongroup==1.2.0
     # via pytest
-idna==3.6
+idna==3.7
     # via
     #   dbt-core
     #   requests
