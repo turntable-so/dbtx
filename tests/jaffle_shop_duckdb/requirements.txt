@@ -191,7 +191,7 @@ toml==0.10.2
     # via sqlfluff
 tomli==2.0.1
     # via pytest
-tqdm==4.66.2
+tqdm==4.66.3
     # via sqlfluff
 typing-extensions==4.10.0
     # via
