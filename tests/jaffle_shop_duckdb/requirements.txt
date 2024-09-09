@@ -16,7 +16,7 @@ attrs==23.2.0
     #   referencing
 babel==2.14.0
     # via agate
-certifi==2024.2.2
+certifi==2024.7.4
     # via requests
 cffi==1.16.0
     # via dbt-core
