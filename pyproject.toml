@@ -3,7 +3,7 @@ name = "dbtx"
 version = "0.1.0"
 description = "Cross-platform dbt runner. Python not required."
 readme = "README.md"
-license = { file = "LICENSE" }
+license = { file = "LICENSE.md" }
 requires-python = ">=3.11"
 authors = [{ name = "Justin Leder", email = "justin@turntable.so" }]
 dependencies = ["pyyaml>=6.0.2", "uv>=0.4.7"]
