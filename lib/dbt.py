@@ -76,11 +76,17 @@ class DBTProject(object):
         raise Exception("Could not find profiles.yml file.")
 
     def get_project_yml_file(self):
-        with open(os.path.join(self.dbt_project_dir, "dbt_project.yml"), "r") as f:
+        dbt_project_yaml_path = os.path.join(self.dbt_project_dir, "dbt_project.yml")
+        if not os.path.exists(dbt_project_yaml_path):
+            raise Exception("Could not find dbt_project.yml file.")
+        with open(dbt_project_yaml_path, "r") as f:
             self.dbt_project_yml = yaml.load(f, yaml.CLoader)
 
     def get_profiles_yml_file(self):
-        with open(os.path.join(self.dbt_profiles_dir, "profiles.yml"), "r") as f:
+        dbt_profiles_yml_path = os.path.join(self.dbt_profiles_dir, "profiles.yml")
+        if not os.path.exists(dbt_profiles_yml_path):
+            raise Exception("Could not find profiles.yml file.")
+        with open(dbt_profiles_yml_path, "r") as f:
             self.dbt_profiles_yml = yaml.load(f, yaml.CLoader)
 
     def get_version(self):

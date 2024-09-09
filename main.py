@@ -1,4 +1,5 @@
 import argparse
+import os
 import subprocess
 import sys
 
@@ -21,11 +22,18 @@ def dbtx():
     version = project.get_version()
     dialect = project.get_dialect()
 
-    command = f'DO_NOT_TRACK=1 uvx --no-progress --isolated --from "dbt-core{version}" --with dbt-{dialect} dbt {" ".join(unknown_args)}'
-    subprocess.run(
-        command,
-        shell=True,
-    )
+    command = [
+        "uvx",
+        "--no-progress",
+        "--isolated",
+        "--from",
+        f"dbt-core{version}",
+        "--with",
+        f"dbt-{dialect}",
+        "dbt",
+        *unknown_args,
+    ]
+    subprocess.run(command, env={"DO_NOT_TRACK": "1", **os.environ})
 
 
 if __name__ == "__main__":
