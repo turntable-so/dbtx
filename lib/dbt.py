@@ -70,10 +70,7 @@ class DBTProject(object):
             return os.path.dirname(in_directory_path)
 
         in_home_path = os.path.join(os.path.expanduser("~"), ".dbt", "profiles.yml")
-        if os.path.exists(in_home_path):
-            return os.path.dirname(in_home_path)
-
-        return in_directory_path
+        return os.path.dirname(in_home_path)
 
     def get_project_yml_file(self):
         dbt_project_yaml_path = os.path.join(self.dbt_project_dir, "dbt_project.yml")
