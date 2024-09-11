@@ -14,7 +14,7 @@ Install uv with our standalone installers, or from [PyPI](https://pypi.org/proje
 
 ### macOS and Linux
 ```console
-$ curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install dbtx 
+$ curl -LsSf https://astral.sh/uv/install.sh | sh && source ~/.cargo/bin/uv && uv tool install dbtx 
 ```
 
 ### Windows
