@@ -34,7 +34,8 @@ $ pip install dbtx
 
 # Usage
 1. Make sure you have `require-dbt-version` set in your `dbt_project.yml` file. Otherwise, defaults to the latest version.
-2. Just replace `dbtx` where you would use `dbt`. That's it!
+2. You may also specify a version using the `DBT_VERSION` env variable. This will override any settings you've made in the `dbt_project.yml`.
+3. Just replace `dbtx` where you would use `dbt`. That's it!
 
 
 
