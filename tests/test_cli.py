@@ -31,3 +31,9 @@ def test_runner_succeeds_in_correct_dir():
     res = run_cli(["--version"], env=BASE_ENV)
     assert res.returncode == 0
     assert "duckdb" in res.stdout
+
+
+def test_version_specification_with_env():
+    res = run_cli(["--version"], env={**BASE_ENV, "DBT_VERSION": "1.5"})
+    assert res.returncode == 0
+    assert "1.5" in res.stdout

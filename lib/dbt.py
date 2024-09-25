@@ -68,6 +68,10 @@ class DBTProject(object):
             self.dbt_profiles_yml = yaml.load(f, yaml.CLoader)
 
     def get_version(self):
+        if vers := os.getenv("DBT_VERSION"):
+            if vers.count(".") <= 1:
+                return f"~={vers}.0"
+            return f"=={vers}"
         if "require-dbt-version" not in self.dbt_project_yml:
             return ""
 
@@ -82,6 +86,8 @@ class DBTProject(object):
                 return dbt_version
         elif isinstance(dbt_version, list):
             return ",".join([str(v) for v in dbt_version])
+        else:
+            raise Exception(f"Invalid dbt_version: {dbt_version}")
 
     def get_dialect(self):
         profile_name = self.dbt_project_yml["profile"]
