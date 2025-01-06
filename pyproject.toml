@@ -1,6 +1,6 @@
 [project]
 name = "dbtx"
-version = "0.0.3"
+version = "0.0.4"
 description = "Cross-platform dbt runner. Python not required."
 readme = "README.md"
 license = { file = "LICENSE.md" }
@@ -15,7 +15,7 @@ dbtx = "main:dbtx"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.rye]
+[tool.uv]
 managed = true
 dev-dependencies = ["pyinstrument>=4.7.3", "pytest>=8.3.2", "dbt-duckdb>=1.8.3"]
 

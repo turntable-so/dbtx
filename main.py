@@ -29,7 +29,7 @@ def dbtx():
         "--from",
         f"dbt-core{version}",
         "--with",
-        f"dbt-{dialect}",
+        f"dbt-{dialect}{version}",
         "dbt",
         *unknown_args,
     ]
